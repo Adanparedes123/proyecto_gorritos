@@ -30,22 +30,22 @@
                     <li class="nav-item d-none d-md-block"> <a href="#" class="nav-link">Home</a> </li>
                     <li class="nav-item d-none d-md-block"> <a href="#" class="nav-link">Contact</a> </li>
                 </ul> <!--end::Start Navbar Links--> <!--begin::End Navbar Links-->
-                <aside class="control-sidebar control-sidebar-dark"
+             {{--    <aside class="control-sidebar control-sidebar-dark"
             style="background: linear-gradient(0deg, rgba(0,24,72,0.9), rgba(0,24,72,0.9)), url({{ asset('dist/img/crop.jpg') }}); background-size:cover;">
-            <!-- Control sidebar content goes here -->
+
             <div class="p-3 text-center">
-                {{-- <h5><i class="fas fa-user"></i> {{ Auth::user()->persona->nombre_completo }} </h5> --}}
+                
                 <h5><i class="fas fa-user"></i></h5>
                 <a class="nav-link btn btn-primary btn-block rounded-0 text-white" data-toggle="modal"
                     data-target="#changepass"><i class="fas fa-key text-white"></i> Cambiar Contraseña</a>
-                {{-- <form action="{{ route('logout') }}" method="POST" class="pt-2"> --}}
+                
                 <form action="{{ route('logout') }}" method="POST" class="pt-2">
                     @csrf
                     <button class="btn btn-danger btn-block rounded-0" type="submit" name="button"><i
                             class="fas fa-sign-out-alt"></i> {{ __('Logout') }}</button>
                 </form>
             </div>
-        </aside>
+        </aside> --}}
                 <ul class="navbar-nav ms-auto"> <!--begin::Navbar Search-->
                     <li class="nav-item"> 
                         <a class="nav-link" data-widget="navbar-search" href="#" role="button"> 
@@ -60,9 +60,14 @@
                                  </i>
                                  </a> 
                                 </li> <!--end::Fullscreen Toggle--> <!--begin::User Menu Dropdown-->
-                                <li class="nav-item dropdown user-menu"> <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"> <img src="{{'dist/assets/img/user2-160x160.jpg'}}" class="user-image rounded-circle shadow" alt="User Image"> <span class="d-none d-md-inline">Alexander Pierce</span> </a>
+                                <li class="nav-item dropdown user-menu"> 
+                                    <a href="" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false"> 
+                                        <img src="{{'dist/assets/img/user2-160x160.jpg'}}" class="user-image rounded-circle shadow" alt="User Image"> 
+                                        <span class="d-none d-md-inline">Alexander Pierce</span> 
+                                    </a>
                                     <ul class="dropdown-menu dropdown-menu-lg dropdown-menu-end"> <!--begin::User Image-->
-                                        <li class="user-header text-bg-primary"> <img src="{{'dist/assets/img/user2-160x160.jpg'}}" class="rounded-circle shadow" alt="User Image">
+                                        <li class="user-header text-bg-primary">
+                                             <img src="{{'dist/assets/img/user2-160x160.jpg'}}" class="rounded-circle shadow" alt="User Image">
                                             <p>
                                                 Alexander Pierce - Web Developer
                                                 <small>Member since Nov. 2023</small>
@@ -75,7 +80,9 @@
                                                 <div class="col-4 text-center"> <a href="#">Friends</a> </div>
                                             </div> <!--end::Row-->
                                         </li> <!--end::Menu Body--> <!--begin::Menu Footer-->
-                                        <li class="user-footer"> <a href="#" class="btn btn-default btn-flat">Profile</a> <a href="#" class="btn btn-default btn-flat float-end">Sign out</a> </li> <!--end::Menu Footer-->
+                                        <li class="user-footer"> <a href="#" class="btn btn-default btn-flat">Profile</a>
+                                             <a href="#" class="btn btn-default btn-flat float-end">Sign out</a>
+                                             </li> <!--end::Menu Footer-->
                                     </ul>
                                 </li>
                 </ul> <!--end::End Navbar Links-->
