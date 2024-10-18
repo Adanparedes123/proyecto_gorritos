@@ -79,7 +79,7 @@
     <!-- /.card -->
   </section>
 
-{{-- modal --}}
+{{-- modal Crear nuevo Cliente --}}
 <div class="modal fade bd-example-modal-lg" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
       <div class="modal-content">
@@ -89,39 +89,40 @@
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-            <form class="form-horizontal">
+            <form class="form-horizontal" action="{{route('clientes.store')}}" method="POST" id="form-crear">
+                @csrf
                 <div class="card-body">
                   <div class="form-group row">
-                    <label for="Nombre" class="col-sm-2 col-form-label">Nombre</label>
+                    <label for="nombres" class="col-sm-2 col-form-label">Nombre</label>
                     <div class="col-sm-6">
-                      <input type="text" class="form-control" id="inputEmail3" placeholder="Nombre Completo">
+                      <input type="text" name="nombres"class="form-control" id="nombres" placeholder="Nombre Completo" required>
                     </div>
                   </div>
                   <br>
                   <div class="form-group row">
                     <label for="a_paterno" class="col-sm-2 col-form-label">Apellido Paterno</label>
                     <div class="col-sm-6">
-                      <input type="text" class="form-control" id="inputPassword3" placeholder="Apellido Paterno">
+                      <input type="text" class="form-control"name="a_paterno" id="a_paterno" placeholder="Apellido Paterno" required>
                     </div>
                   </div>
                   <br>
                   <div class="form-group row">
                     <label for="a_materno" class="col-sm-2 col-form-label">Apellido Materno</label>
                     <div class="col-sm-6">
-                      <input type="text" class="form-control" id="inputPassword3" placeholder="Apellido Materno">
+                      <input type="text" class="form-control" name="a_materno" id="a_materno" placeholder="Apellido Materno"required>
                     </div>
                   </div>
                   <br>
                   <div class="form-group row ">
-                    <label for="celular" class="col-sm-2 col-form-label">Numero de Celular</label>
+                    <label for="telefono" class="col-sm-2 col-form-label">Numero de Celular</label>
                     <div class="col-sm-6">
-                      <input type="number" class="form-control" id="inputPassword3" placeholder="Celular">
+                      <input type="number" class="form-control" name="telefono" id="telefono" placeholder="Celular"required>
                     </div>
                   </div>
                   <div class="form-group row ">
-                    <label for="email" class="col-sm-2 col-form-label">Correo Electronico</label>
+                    <label for="correo" class="col-sm-2 col-form-label">Correo Electronico</label>
                     <div class="col-sm-6">
-                      <input type="email" class="form-control" id="inputPassword3" placeholder="Correo">
+                      <input type="email" class="form-control" name="correo" id="correo" placeholder="Correo">
                     </div>
                   </div>
                 </div>
@@ -130,12 +131,16 @@
                   <button type="submit" class="btn btn-info">Sign in</button>
                   <button type="submit" class="btn btn-default float-right">Cancel</button>
                 </div> --}}
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                    <button id="enviar_form"type="submit" class="btn btn-primary">Registrar</button>
+                  </div>
               </form>
           </div>
-        <div class="modal-footer">
+        {{-- <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
           <button id="enviar_form"type="button" class="btn btn-primary">Guardar cambios</button>
-        </div>
+        </div> --}}
       </div>
     </div>
   </div>
@@ -146,7 +151,40 @@
 @endsection
 
 @push('scripts')
-<script>
-    
-</script>
+ {{-- <script>
+        $('#form-crear').validate({
+            rules: {
+                titulo: {required: true},
+                cupo_max: {required: true},
+                descripcion: {required: true},
+                fecha_inicio: {required: true},
+                fecha_fin: {required: true},
+                fecha_fin_ins: {required: true},
+                tipo_curso: {required: true},
+                portada: {required: true,image: true},
+            },
+            messages: {
+                titulo: {required: "El campo titulo es obligatorio"},
+                cupo_max: {required: "El campo cupo es obligatorio"},
+                descripcion: {required: "El campo descripcion es obligatorio"},
+                fecha_inicio: {required: "El campo fecha inicio es obligatorio"},
+                fecha_fin: {required: "El campo fecha fin es obligatorio"},
+                fecha_fin_ins: {required: "El campo fecha final de la inscripcion es obligatorio"},
+                tipo_curso: {required: "El campo Tipo de Curso es obligatorio"},
+                portada: {required: "El campo portada es obligatorio",image: "El archivo debe ser imagen"},
+            },
+            errorElement: 'span',
+            errorPlacement: function(error, element) {
+                error.addClass('invalid-feedback');
+                element.closest('.form-group').append(error);
+            },
+            highlight: function(element, errorClass, validClass) {
+                $(element).addClass('is-invalid');
+            },
+            unhighlight: function(element, errorClass, validClass) {
+                $(element).removeClass('is-invalid');
+            }
+        });
+          
+</script> --}}
    @endpush
