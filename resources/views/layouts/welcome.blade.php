@@ -15,6 +15,7 @@
     <link rel="stylesheet" href="{{asset('dist/css/adminlte.css')}}">
     <link rel="stylesheet" href="{{asset('https://cdn.jsdelivr.net/npm/apexcharts@3.37.1/dist/apexcharts.css')}}" 
     <link rel="stylesheet" href="{{asset('https://cdn.jsdelivr.net/npm/jsvectormap@1.5.3/dist/css/jsvectormap.min.css')}}" 
+    
     @vite(['resources/js/app.js'])
     @stack('styles')
 </head>

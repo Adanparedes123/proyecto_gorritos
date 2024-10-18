@@ -22,7 +22,6 @@ return new class extends Migration
             $table->foreign('id_cliente')->references('id_cliente')->on('clientes');
             $table->foreign('id_producto')->references('id_producto')->on('productos');
             $table->timestamps();
-
             });
 
     }
